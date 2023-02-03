@@ -30,6 +30,31 @@ public class Items {
         değerlerini döndürmeli
 
      */
+    public static double ItemName(String itemName){
+        double deger=0;
+        if (itemName.equalsIgnoreCase("Rose teddy bear"))
+            deger= 30;
+        else
+            if (itemName.equalsIgnoreCase("Iphone max"))
+                deger=850.23;
+            else
+                if (itemName.equalsIgnoreCase("Laptop mouse"))
+                    deger= 23.50;
+                else
+                    if (itemName.equalsIgnoreCase("Monitor"))
+                        deger= 90.23;
+                    else
+                        if (itemName.equalsIgnoreCase("charger"))
+                            deger= 43.20;
+                        else
+                            if (itemName.equalsIgnoreCase("hdmi cable"))
+                                deger= 5.90;
+                            else
+                                if (itemName.equalsIgnoreCase("mug"))
+                                    deger= 30;
+        return deger;
+    }
+
 
     // Method buraya yazılacak
 
@@ -52,6 +77,17 @@ public class Items {
         değerlerini döndürmeli
 
      */
+    public static double colorPrice(String color){
+        double deger=0;
+        switch (color){
+            case "Red": deger= 10; break;
+            case "Blue": deger=6; break;
+            case "Black":deger=4; break;
+            case "White":deger=2; break;
+
+        }
+        return deger;
+    }
 
     // Method buraya yazılacak
 
@@ -73,9 +109,15 @@ public class Items {
 
      */
 
-    // Method buraya yazılacak
+    public static double customText(String text){
+        double deger=0;
+        if (text.length()>10)
+            deger=5;
+        else
+            deger=3;
 
-    //---------------------------------------------------------------------------------------
+        return deger;
+    }
 
 
 

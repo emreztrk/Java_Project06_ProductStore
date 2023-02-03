@@ -2,6 +2,8 @@ package HelperFunctions;
 
 import Database.Address;
 
+import java.util.ArrayList;
+
 public class HelperFunctions {
 
     /*
@@ -28,12 +30,16 @@ public class HelperFunctions {
             Arraylistin içerisinde var ise o zaman city i dondursun.
 
      */
+    public static String checkCity(String city){
+        if (!Address.getCityList().contains(city)) {
+            throw new RuntimeException("We can not continue your process because, there is no shipping that location.");
+        }
+        else return city;
 
-    // Method buraya yazılacak
 
-    //---------------------------------------------------------------------------------------
+    }
 
-    //---------------------------------------------------------------------------------------
+
 
     /*
 
@@ -53,6 +59,20 @@ public class HelperFunctions {
         örneğin bir takip kodu: IZM35430CK (Izmir + 35430 + Cem Karaca)
 
      */
+    public static String generateShippingTrackingNumber(String fullname, String city, String zipcode){
+
+        String trackNumber="";
+        trackNumber += city.substring(0,3)+zipcode;
+        trackNumber+= String.valueOf(fullname.charAt(0))+fullname.charAt(fullname.indexOf(" ")+1);
+
+        return trackNumber.toUpperCase();
+
+
+
+
+
+    }
+
 
     // Method buraya yazılacak
 
@@ -73,9 +93,13 @@ public class HelperFunctions {
         diğer durumda ise zipCode unu döndürmeli
      */
 
-    // Method buraya yazılacak
-
-    //---------------------------------------------------------------------------------------
+    public static String checkZipCode(String zipcode){
+        if (zipcode.length() !=5){
+            throw new RuntimeException("Please enter valid Zip Code");
+        }
+        else
+            return zipcode;
+    }
 
 
 }

@@ -3,7 +3,6 @@ package Models;
 import HelperFunctions.HelperFunctions;
 
 public class User {
-
     /*
 
         User içerisinde attribute larin hepsi private tanımlanmalı.
@@ -18,6 +17,12 @@ public class User {
         Attribute lar burada tanımlanıcak -->
 
      */
+    private String fullName;
+    private String city;
+    private String address;
+    private String zipCode;
+    private double myPrice;
+    private String shippingTrackingNumber;
 
 
     /*
@@ -34,6 +39,13 @@ public class User {
 
      */
 
+    public User(String fullName, String address, String city, String zipCode) {
+        this.fullName = fullName;
+        this.city = HelperFunctions.checkCity(city);
+        this.address = address;
+        this.zipCode = HelperFunctions.checkZipCode(zipCode);
+        this.shippingTrackingNumber=HelperFunctions.generateShippingTrackingNumber(fullName,city,zipCode);
+    }
     /*
 
         myPrice için bir getter bir de setter method oluşmalı
@@ -46,8 +58,13 @@ public class User {
 
      */
 
+    public double getMyPrice() {
+        return myPrice;
+    }
 
-
+    public void setMyPrice(double myPrice) {
+        this.myPrice += myPrice;
+    }
     // toString methodunu değiştirmenize gerek yoktur, sadece görsel anlam ifade etmektedir
 
     @Override
